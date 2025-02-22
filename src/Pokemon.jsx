@@ -44,6 +44,7 @@ export default function Pokemon() {
   }
 
   function handleCardClick(pokemon) {
+    event.preventDefault(); // Prevent default behavior
     setFlipping(true);
     setTimeout(async () => {
         if (selectedPokemons.has(pokemon.id)) {
@@ -106,5 +107,7 @@ function getRandomSubset(array, size, excludeSet = new Set()) {
     availablePokemons = [...availablePokemons, ...array.filter((poke) => excludeSet.has(poke.id))];
   }
 
-  return availablePokemons.sort(() => 0.5 - Math.random()).slice(0, size);
+
+
+  return availablePokemons.slice(0, size).sort(() => 0.5 - Math.random());
 }
