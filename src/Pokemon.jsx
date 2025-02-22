@@ -44,7 +44,6 @@ export default function Pokemon() {
   }
 
   function handleCardClick(pokemon) {
-    event.preventDefault(); // Prevent default behavior
     setFlipping(true);
     setTimeout(async () => {
         if (selectedPokemons.has(pokemon.id)) {

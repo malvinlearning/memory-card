@@ -5,8 +5,8 @@
 }
 
 #root {
-    min-height: 100vh; /* Ensures it adapts to content */
-    width: 100vw;
+    height: 100vh; /* Ensures it adapts to content */
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,7 +18,7 @@
 
 #root::before {
     content: '';
-    position: fixed; /* Fixed so it always covers full screen */
+    position: absolute; /* Fixed so it always covers full screen */
     top: 0;
     left: 0;
     width: 100%;
