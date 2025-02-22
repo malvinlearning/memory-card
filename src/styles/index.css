@@ -5,7 +5,7 @@
 }
 
 #root {
-    height: 100vh;
+    min-height: 100vh; /* Ensures it adapts to content */
     width: 100vw;
     display: flex;
     align-items: center;
@@ -13,11 +13,12 @@
     background-image: url('/src/assets/body-background.jpg');
     background-size: cover;
     background-position: center;
+    position: relative; /* Ensures pseudo-element positions correctly */
 }
 
-#root::before{
+#root::before {
     content: '';
-    position: absolute;
+    position: fixed; /* Fixed so it always covers full screen */
     top: 0;
     left: 0;
     width: 100%;
@@ -106,4 +107,47 @@
     position: relative;
     z-index: 1;
     text-align: center;
+}
+
+
+@media screen and (max-width: 480px) {
+
+    #root {
+        height: 100%;
+        width: 100%;
+    }
+
+    .pokemon-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pokemon-card {
+        width: 150px;
+        height: 200px;
+    }
+
+    .card-front .pokemon-name {
+        font-size: 0.9rem;
+    }
+
+    .card-front .pokemon-image {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+    .pokemon-card {
+        width: 150px;
+        height: 200px;
+    }
+
+    .card-front  .pokemon-name {
+        font-size: 0.8rem;
+    }
+
+    .card-front .pokemon-image {
+        width: 50px;
+    }
 }
